@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .quote-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .generate-button {
+            font-size: 1rem;
+            padding: 10px 20px;
+            background-color: #5C6BC0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .generate-button:hover {
+            background-color: #3f51b5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-container">
+        <p id="quote" class="quote-text">Click the button for a random quote!</p>
+        <button id="generate-button" class="generate-button">Generate Quote</button>
+    </div>
+
+    <script>
+        // Array of quotes
+        const quotes = [
+            "The only way to do great work is to love what you do. – Steve Jobs",
+            "Success is not the key to happiness. Happiness is the key to success. – Albert Schweitzer",
+            "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate. – Ralph Waldo Emerson",
+            "Life is 10% what happens to us and 90% how we react to it. – Charles R. Swindoll",
+            "Don't watch the clock; do what it does. Keep going. – Sam Levenson",
+            "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
+            "It does not matter how slowly you go as long as you do not stop. – Confucius",
+            "In the end, we will remember not the words of our enemies, but the silence of our friends. – Martin Luther King Jr.",
+            "The best way to predict your future is to create it. – Abraham Lincoln",
+            "Success usually comes to those who are too busy to be looking for it. – Henry David Thoreau"
+        ];
+
+        // Function to generate a random quote
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        // Function to update the displayed quote
+        function displayRandomQuote() {
+            const quoteElement = document.getElementById("quote");
+            quoteElement.textContent = getRandomQuote();
+        }
+
+        // Event listener for button click
+        document.getElementById("generate-button").addEventListener("click", displayRandomQuote);
+    </script>
+
+</body>
+</html>
